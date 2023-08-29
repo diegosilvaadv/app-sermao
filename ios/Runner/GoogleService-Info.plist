@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>534909174384-cdp5kdjfnu54kvp3eq9vfar99pmtuffu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.534909174384-cdp5kdjfnu54kvp3eq9vfar99pmtuffu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>534909174384-9diaja06busjudbq2k87i8iqqc8ogjb1.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDmB4M0fJQ6QRCpOGkXb-zQHPGxFLOz-zE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>534909174384</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.sermoesempdfpptword</string>
+	<key>PROJECT_ID</key>
+	<string>sermoes-e9b7b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sermoes-e9b7b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:534909174384:ios:60753e03bd9c22d3276ab5</string>
+	<key>DATABASE_URL</key>
+	<string>https://sermoes-e9b7b-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
