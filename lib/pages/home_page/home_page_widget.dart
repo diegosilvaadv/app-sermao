@@ -29,7 +29,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.initState();
     _model = createModel(context, () => HomePageModel());
 
-    _model.textController ??= TextEditingController(text: 'PESQUISAR');
+    _model.textController ??= TextEditingController();
   }
 
   @override
@@ -115,8 +115,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: Autocomplete<String>(
-                                initialValue:
-                                    TextEditingValue(text: 'PESQUISAR'),
+                                initialValue: TextEditingValue(),
                                 optionsBuilder: (textEditingValue) {
                                   if (textEditingValue.text == '') {
                                     return const Iterable<String>.empty();
@@ -173,6 +172,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     autofocus: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
+                                      labelText: 'PESQUISAR',
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium,
                                       hintStyle: FlutterFlowTheme.of(context)
