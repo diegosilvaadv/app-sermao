@@ -189,6 +189,29 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Opacity(
+                                                        opacity: 0.8,
+                                                        child: Divider(
+                                                          height: 10.0,
+                                                          thickness: 10.0,
+                                                          indent: 100.0,
+                                                          endIndent: 250.0,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
                                                   Expanded(
                                                     child: AutoSizeText(
                                                       listViewSermaoRecord
