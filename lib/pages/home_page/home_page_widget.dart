@@ -141,38 +141,42 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            child: Text(
-                                              listViewSermaoRecord.titulo,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleLarge,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 10.0, 10.0, 10.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                listViewSermaoRecord.titulo,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleLarge,
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            child: AutoSizeText(
-                                              listViewSermaoRecord.descricao
-                                                  .maybeHandleOverflow(
-                                                      maxChars: 50),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: AutoSizeText(
+                                                listViewSermaoRecord.descricao
+                                                    .maybeHandleOverflow(
+                                                        maxChars: 100),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               );
