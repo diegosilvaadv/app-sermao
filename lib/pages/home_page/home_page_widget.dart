@@ -112,65 +112,94 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               return Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
-                                child: Material(
-                                  color: Colors.transparent,
-                                  elevation: 4.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Container(
-                                    width: 100.0,
-                                    height: 100.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          offset: Offset(0.0, 2.0),
-                                        )
-                                      ],
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'ViewPage',
+                                      queryParameters: {
+                                        'titulo': serializeParam(
+                                          listViewSermaoRecord.titulo,
+                                          ParamType.String,
+                                        ),
+                                        'descricao': serializeParam(
+                                          listViewSermaoRecord.descricao,
+                                          ParamType.String,
+                                        ),
+                                        'date': serializeParam(
+                                          listViewSermaoRecord.date,
+                                          ParamType.DateTime,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: Material(
+                                    color: Colors.transparent,
+                                    elevation: 4.0,
+                                    shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
-                                      child: SingleChildScrollView(
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: Text(
-                                                    listViewSermaoRecord.titulo,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge,
+                                    child: Container(
+                                      width: 100.0,
+                                      height: 100.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            offset: Offset(0.0, 2.0),
+                                          )
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 10.0, 10.0, 10.0),
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Text(
+                                                      listViewSermaoRecord
+                                                          .titulo,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLarge,
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: AutoSizeText(
-                                                    listViewSermaoRecord
-                                                        .descricao
-                                                        .maybeHandleOverflow(
-                                                            maxChars: 100),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: AutoSizeText(
+                                                      listViewSermaoRecord
+                                                          .descricao
+                                                          .maybeHandleOverflow(
+                                                              maxChars: 100),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
