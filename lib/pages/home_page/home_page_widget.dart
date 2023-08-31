@@ -144,7 +144,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                     child: Container(
                                       width: 100.0,
-                                      height: 100.0,
+                                      height: 150.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
@@ -176,7 +176,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .titleLarge,
+                                                              .titleLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                fontSize: 18.0,
+                                                              ),
                                                     ),
                                                   ),
                                                 ],
