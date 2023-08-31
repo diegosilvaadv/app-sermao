@@ -133,35 +133,47 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               itemBuilder: (context, listViewIndex) {
                                 final listViewSermaoRecord =
                                     listViewSermaoRecordList[listViewIndex];
-                                return Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            listViewSermaoRecord.titulo,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                return Card(
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 4.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              listViewSermaoRecord.titulo,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleLarge,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: AutoSizeText(
-                                            listViewSermaoRecord.descricao,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
-                                            minFontSize: 20.0,
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: AutoSizeText(
+                                              listViewSermaoRecord.descricao
+                                                  .maybeHandleOverflow(
+                                                      maxChars: 20),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 );
                               },
                             ),
