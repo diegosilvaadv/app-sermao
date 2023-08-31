@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -265,26 +266,29 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 10.0, 10.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 5.0, 5.0, 5.0),
-                                                child: Text(
-                                                  columnSermaoRecord.titulo,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily: 'Outfit',
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
+                                          child: SingleChildScrollView(
+                                            scrollDirection: Axis.horizontal,
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 5.0, 5.0, 5.0),
+                                                  child: AutoSizeText(
+                                                    columnSermaoRecord.titulo,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                         Row(
@@ -293,8 +297,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(5.0, 5.0, 5.0, 5.0),
-                                              child: Text(
-                                                columnSermaoRecord.descricao,
+                                              child: AutoSizeText(
+                                                columnSermaoRecord.descricao
+                                                    .maybeHandleOverflow(
+                                                        maxChars: 15),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
