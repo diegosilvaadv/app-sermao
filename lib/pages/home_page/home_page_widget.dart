@@ -194,7 +194,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       listViewSermaoRecord
                                                           .resumo
                                                           .maybeHandleOverflow(
-                                                              maxChars: 100),
+                                                        maxChars: 150,
+                                                        replacement: '…',
+                                                      ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
