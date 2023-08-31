@@ -192,7 +192,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   Expanded(
                                                     child: AutoSizeText(
                                                       listViewSermaoRecord
-                                                          .descricao
+                                                          .resumo
                                                           .maybeHandleOverflow(
                                                               maxChars: 100),
                                                       style:

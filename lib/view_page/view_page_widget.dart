@@ -1,11 +1,9 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'view_page_model.dart';
 export 'view_page_model.dart';
@@ -138,27 +136,6 @@ class _ViewPageWidgetState extends State<ViewPageWidget> {
                         Expanded(
                           child: Html(
                             data: widget.descricao!,
-                          ),
-                        ),
-                        Builder(
-                          builder: (context) => FlutterFlowIconButton(
-                            borderColor: FlutterFlowTheme.of(context).primary,
-                            borderRadius: 20.0,
-                            borderWidth: 1.0,
-                            buttonSize: 40.0,
-                            fillColor: FlutterFlowTheme.of(context).accent1,
-                            icon: Icon(
-                              Icons.content_copy,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24.0,
-                            ),
-                            onPressed: () async {
-                              await Share.share(
-                                widget.descricao!,
-                                sharePositionOrigin:
-                                    getWidgetBoundingBox(context),
-                              );
-                            },
                           ),
                         ),
                       ],
