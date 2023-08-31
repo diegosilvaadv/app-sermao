@@ -120,7 +120,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   if (textEditingValue.text == '') {
                                     return const Iterable<String>.empty();
                                   }
-                                  return ['sermão', 'biblia'].where((option) {
+                                  return ['sermão', 'biblia', 'iasd', 'crime']
+                                      .where((option) {
                                     final lowercaseOption =
                                         option.toLowerCase();
                                     return lowercaseOption.contains(
@@ -248,9 +249,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             SermaoRecord>(
                           pagingController: _model.setListViewController(
                             SermaoRecord.collection.where('titulo',
-                                isEqualTo: _model.textController.text != ''
-                                    ? _model.textController.text
-                                    : null),
+                                isLessThanOrEqualTo:
+                                    _model.textFieldSelectedOption != ''
+                                        ? _model.textFieldSelectedOption
+                                        : null),
                           ),
                           padding: EdgeInsets.zero,
                           shrinkWrap: true,
