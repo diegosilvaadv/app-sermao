@@ -123,8 +123,10 @@ class _ViewPageWidgetState extends State<ViewPageWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Html(
-                          data: widget.descricao!,
+                        Expanded(
+                          child: Html(
+                            data: widget.descricao!,
+                          ),
                         ),
                       ],
                     ),
