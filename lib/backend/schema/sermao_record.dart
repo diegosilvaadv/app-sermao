@@ -36,11 +36,17 @@ class SermaoRecord extends FirestoreRecord {
   DateTime? get date => _date;
   bool hasDate() => _date != null;
 
+  // "Resumo" field.
+  String? _resumo;
+  String get resumo => _resumo ?? '';
+  bool hasResumo() => _resumo != null;
+
   void _initializeFields() {
     _titulo = snapshotData['titulo'] as String?;
     _descricao = snapshotData['descricao'] as String?;
     _tag = snapshotData['tag'] as String?;
     _date = snapshotData['date'] as DateTime?;
+    _resumo = snapshotData['Resumo'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -81,6 +87,7 @@ Map<String, dynamic> createSermaoRecordData({
   String? descricao,
   String? tag,
   DateTime? date,
+  String? resumo,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -88,6 +95,7 @@ Map<String, dynamic> createSermaoRecordData({
       'descricao': descricao,
       'tag': tag,
       'date': date,
+      'Resumo': resumo,
     }.withoutNulls,
   );
 
@@ -102,12 +110,13 @@ class SermaoRecordDocumentEquality implements Equality<SermaoRecord> {
     return e1?.titulo == e2?.titulo &&
         e1?.descricao == e2?.descricao &&
         e1?.tag == e2?.tag &&
-        e1?.date == e2?.date;
+        e1?.date == e2?.date &&
+        e1?.resumo == e2?.resumo;
   }
 
   @override
-  int hash(SermaoRecord? e) =>
-      const ListEquality().hash([e?.titulo, e?.descricao, e?.tag, e?.date]);
+  int hash(SermaoRecord? e) => const ListEquality()
+      .hash([e?.titulo, e?.descricao, e?.tag, e?.date, e?.resumo]);
 
   @override
   bool isValidKey(Object? o) => o is SermaoRecord;
