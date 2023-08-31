@@ -105,8 +105,7 @@ class _ViewPageWidgetState extends State<ViewPageWidget> {
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       5.0, 5.0, 5.0, 5.0),
-                                  child: SelectionArea(
-                                      child: Text(
+                                  child: Text(
                                     widget.titulo!,
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
@@ -114,7 +113,7 @@ class _ViewPageWidgetState extends State<ViewPageWidget> {
                                           fontFamily: 'Outfit',
                                           fontWeight: FontWeight.bold,
                                         ),
-                                  )),
+                                  ),
                                 ),
                               ),
                             ],
