@@ -27,7 +27,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.initState();
     _model = createModel(context, () => HomePageModel());
 
-    _model.textController ??= TextEditingController();
+    _model.textController ??= TextEditingController(text: 'PESQUISAR');
   }
 
   @override
@@ -117,7 +117,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'PESQUISAR',
                                   labelStyle:
                                       FlutterFlowTheme.of(context).labelMedium,
                                   hintStyle:
@@ -171,8 +170,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             SermaoRecord>(
                           pagingController: _model.setListViewController(
                             SermaoRecord.collection.where('titulo',
-                                isLessThanOrEqualTo:
-                                    _model.textController.text),
+                                isNotEqualTo: _model.textController.text),
                           ),
                           padding: EdgeInsets.zero,
                           shrinkWrap: true,
