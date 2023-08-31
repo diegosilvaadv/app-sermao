@@ -171,7 +171,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             SermaoRecord>(
                           pagingController: _model.setListViewController(
                             SermaoRecord.collection.where('titulo',
-                                isEqualTo: _model.textController.text),
+                                isLessThanOrEqualTo:
+                                    _model.textController.text),
                           ),
                           padding: EdgeInsets.zero,
                           shrinkWrap: true,
