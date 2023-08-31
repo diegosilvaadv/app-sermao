@@ -101,39 +101,39 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           }
                           List<SermaoRecord> listViewSermaoRecordList =
                               snapshot.data!;
-                          return InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed(
-                                'ViewPage',
-                                queryParameters: {
-                                  'titulo': serializeParam(
-                                    '',
-                                    ParamType.String,
-                                  ),
-                                  'descricao': serializeParam(
-                                    '',
-                                    ParamType.String,
-                                  ),
-                                  'date': serializeParam(
-                                    getCurrentTimestamp,
-                                    ParamType.DateTime,
-                                  ),
-                                }.withoutNulls,
-                              );
-                            },
-                            child: ListView.builder(
-                              padding: EdgeInsets.zero,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              itemCount: listViewSermaoRecordList.length,
-                              itemBuilder: (context, listViewIndex) {
-                                final listViewSermaoRecord =
-                                    listViewSermaoRecordList[listViewIndex];
-                                return Card(
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewSermaoRecordList.length,
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewSermaoRecord =
+                                  listViewSermaoRecordList[listViewIndex];
+                              return InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'ViewPage',
+                                    queryParameters: {
+                                      'titulo': serializeParam(
+                                        listViewSermaoRecord.titulo,
+                                        ParamType.String,
+                                      ),
+                                      'descricao': serializeParam(
+                                        listViewSermaoRecord.descricao,
+                                        ParamType.String,
+                                      ),
+                                      'date': serializeParam(
+                                        listViewSermaoRecord.date,
+                                        ParamType.DateTime,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+                                },
+                                child: Card(
                                   clipBehavior: Clip.antiAliasWithSaveLayer,
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -164,7 +164,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             child: AutoSizeText(
                                               listViewSermaoRecord.descricao
                                                   .maybeHandleOverflow(
-                                                      maxChars: 20),
+                                                      maxChars: 50),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium,
@@ -174,9 +174,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       ),
                                     ],
                                   ),
-                                );
-                              },
-                            ),
+                                ),
+                              );
+                            },
                           );
                         },
                       ),
