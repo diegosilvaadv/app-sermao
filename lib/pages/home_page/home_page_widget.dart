@@ -192,81 +192,101 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ],
                     ),
                   ),
-                  StreamBuilder<List<SermaoRecord>>(
-                    stream: querySermaoRecord(
-                      queryBuilder: (sermaoRecord) =>
-                          sermaoRecord.orderBy('date'),
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
-                            ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 2.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 4.0,
+                              color: FlutterFlowTheme.of(context).primary,
+                              offset: Offset(0.0, 2.0),
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: StreamBuilder<List<SermaoRecord>>(
+                          stream: querySermaoRecord(
+                            queryBuilder: (sermaoRecord) =>
+                                sermaoRecord.orderBy('date'),
                           ),
-                        );
-                      }
-                      List<SermaoRecord> columnSermaoRecordList =
-                          snapshot.data!;
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: List.generate(columnSermaoRecordList.length,
-                            (columnIndex) {
-                          final columnSermaoRecord =
-                              columnSermaoRecordList[columnIndex];
-                          return Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                5.0, 10.0, 5.0, 0.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'ViewPage',
-                                  queryParameters: {
-                                    'titulo': serializeParam(
-                                      columnSermaoRecord.titulo,
-                                      ParamType.String,
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).primary,
                                     ),
-                                    'descricao': serializeParam(
-                                      columnSermaoRecord.descricao,
-                                      ParamType.String,
-                                    ),
-                                    'date': serializeParam(
-                                      columnSermaoRecord.date,
-                                      ParamType.DateTime,
-                                    ),
-                                  }.withoutNulls,
-                                );
-                              },
-                              child: Card(
-                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                elevation: 4.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  ),
                                 ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 10.0, 10.0, 10.0),
-                                          child: SingleChildScrollView(
+                              );
+                            }
+                            List<SermaoRecord> columnSermaoRecordList =
+                                snapshot.data!;
+                            return SingleChildScrollView(
+                              primary: false,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children:
+                                    List.generate(columnSermaoRecordList.length,
+                                        (columnIndex) {
+                                  final columnSermaoRecord =
+                                      columnSermaoRecordList[columnIndex];
+                                  return Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 10.0, 10.0, 10.0),
+                                            child: SingleChildScrollView(
+                                              scrollDirection: Axis.horizontal,
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 5.0,
+                                                                5.0, 5.0),
+                                                    child: AutoSizeText(
+                                                      columnSermaoRecord.titulo,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Outfit',
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          SingleChildScrollView(
                                             scrollDirection: Axis.horizontal,
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -276,48 +296,28 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       .fromSTEB(
                                                           5.0, 5.0, 5.0, 5.0),
                                                   child: AutoSizeText(
-                                                    columnSermaoRecord.titulo,
+                                                    columnSermaoRecord.descricao
+                                                        .maybeHandleOverflow(
+                                                            maxChars: 15),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                        .bodyMedium,
                                                   ),
                                                 ),
                                               ],
                                             ),
                                           ),
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 5.0, 5.0, 5.0),
-                                              child: AutoSizeText(
-                                                columnSermaoRecord.descricao
-                                                    .maybeHandleOverflow(
-                                                        maxChars: 15),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                                        ],
+                                      ),
+                                    ],
+                                  );
+                                }),
                               ),
-                            ),
-                          );
-                        }),
-                      );
-                    },
+                            );
+                          },
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
